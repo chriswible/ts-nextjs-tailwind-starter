@@ -1,4 +1,8 @@
-// !STARTERCONF You should delete this page
+/*
+  Example of a test for the HomePage component
+  Reference:
+  https://nextjs.org/docs/app/building-your-application/optimizing/testing
+*/
 
 import { render, screen } from '@testing-library/react';
 

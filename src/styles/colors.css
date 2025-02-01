@@ -1,5 +1,8 @@
-/* //!STARTERCONF Remove this file after copying your desired color, this is a large file you should remove it. */
-
+/*
+  Reference:
+  Colors are from Tailwind CSS
+  https://tailwindcss.com/docs/customizing-colors 
+*/
 .slate {
   --tw-color-primary-50: 248 250 252;
   --tw-color-primary-100: 241 245 249;
