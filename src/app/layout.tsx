@@ -2,13 +2,9 @@ import { Metadata } from 'next';
 import * as React from 'react';
 
 import '@/styles/globals.css';
-// !STARTERCONF This is for demo purposes, remove @/styles/colors.css import immediately
-import '@/styles/colors.css';
 
 import { siteConfig } from '@/constant/config';
 
-// !STARTERCONF Change these default meta
-// !STARTERCONF Look at @/constant/config to change them
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
@@ -17,8 +13,6 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   robots: { index: true, follow: true },
-  // !STARTERCONF this is the default favicon, you can generate your own from https://realfavicongenerator.net/
-  // ! copy to /favicon folder
   icons: {
     icon: '/favicon/favicon.ico',
     shortcut: '/favicon/favicon-16x16.png',
@@ -39,14 +33,13 @@ export const metadata: Metadata = {
     title: siteConfig.title,
     description: siteConfig.description,
     images: [`${siteConfig.url}/images/og.jpg`],
-    // creator: '@th_clarence',
   },
-  // authors: [
-  //   {
-  //     name: 'Theodorus Clarence',
-  //     url: 'https://theodorusclarence.com',
-  //   },
-  // ],
+  authors: [
+    {
+      name: 'Christopher Robin Wible Jr.',
+      url: 'https://chriswiblejr.com',
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -55,8 +48,40 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html>
-      <body>{children}</body>
+    <html lang='en' className='h-full scroll-smooth bg-gray-900 text-white'>
+      <body className='flex min-h-screen flex-col'>
+        <Navbar />
+        <main className='flex-1 container mx-auto px-4 py-6'>{children}</main>
+        <Footer />
+      </body>
     </html>
+  );
+}
+
+function Navbar() {
+  return (
+    <nav className='w-full border-b border-gray-800 bg-gray-950 px-6 py-4'>
+      <div className='container mx-auto flex items-center justify-between'>
+        <a href='/' className='text-xl font-bold text-white'>
+          {siteConfig.title}
+        </a>
+        <div className='flex gap-4'>
+          <a href='/about' className='hover:text-gray-400'>
+            About
+          </a>
+          <a href='/example' className='hover:text-gray-400'>
+            Example
+          </a>
+        </div>
+      </div>
+    </nav>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className='w-full border-t border-gray-800 bg-gray-950 px-6 py-4 text-center text-sm text-gray-400'>
+      © {new Date().getFullYear()} {siteConfig.title}. All rights reserved.
+    </footer>
   );
 }
